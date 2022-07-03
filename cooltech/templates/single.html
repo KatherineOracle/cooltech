@@ -1,0 +1,55 @@
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+    <!-- wp:group {"align":"full", "layout":{"inherit":true}} -->
+    <div class="wp-block-group alignfull breadcrumb has-secondary-background-color">
+        <!-- wp:group {"align":"wide", "layout":{"inherit":true}} -->
+            <div class="wp-block-group alignwide ">
+            <!-- wp:shortcode -->[wpseo_breadcrumb /]<!-- /wp:shortcode -->
+            </div><!-- /wp:group -->
+    </div><!-- /wp:group -->
+
+<!-- wp:group {"tagName":"main", "align":"full", "layout":{"inherit":true}} -->
+<main class="wp-block-group alignfull">
+
+    <!-- wp:group {"align":"wide"} -->
+    <div class="wp-block-group single alignwide">
+
+        <!-- wp:group {"tagName":"article","align":"right"} -->
+        <article class="wp-block-group ">
+            <!-- wp:post-title {"level":1, "className": "page-title", "align":"default","style":{"spacing":{"margin":{"bottom":"var(--wp--custom--spacing--small, 2rem)"}}}} /-->   
+            <!-- wp:group {"layout":{"type":"flex"}} -->
+            <div class="wp-block-group post-meta ">
+
+                <!-- wp:lazyblock/cooltech-views {"blockId":"1Aq96Y","blockUniqueClass":"lazyblock-cooltech-views-1Aq96Y"} /-->
+            
+                <!-- wp:post-date {"format":"F j, Y","style":{"typography":{"fontStyle":"italic","fontWeight":"400"}},"fontSize":"small"} /-->
+                
+                <!-- wp:post-author {"showAvatar":false,"fontSize":"small"} /-->
+                
+                <div><span>Category:</span><!-- wp:post-terms {"term":"category","fontSize":"small", "prefix":"Categories:"} /--> </div>
+                
+                <div><span>Tags:</span><!-- wp:post-terms {"term":"post_tag","fontSize":"small", "prefix":"Tags:"} /--></div>
+            
+                </div><!-- /wp:group -->
+            
+        <!-- wp:post-featured-image {"style":{"spacing":{"margin":{"bottom":"var(--wp--custom--spacing--small, 2rem)"}}}} /-->
+
+        <!-- wp:separator {"align":"wide","className":"is-style-wide"} -->
+        <hr class="wp-block-separator alignwide is-style-wide"/>
+        <!-- /wp:separator --> 
+
+        <!-- wp:post-content {"align":"right", "layout":{"inherit":true}} /-->
+
+    </article><!-- /wp:group -->
+    </div><!-- /wp:group -->
+
+    <!-- wp:group {"align":"full"} --> 
+    <div class="wp-block-group comments alignfull">    
+        <!-- wp:group {"align":"wide", "layout":{"inherit":true}} -->
+        <div class="wp-block-group  alignwide">
+        <!-- wp:post-comments /-->
+        </div><!-- /wp:group -->
+    </div><!-- /wp:group -->
+    
+</main><!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

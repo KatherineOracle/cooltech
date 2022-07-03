@@ -1,0 +1,361 @@
+/*
+Theme Name: CoolTech
+Theme URI: https://wordpress.org/themes/cooltech/
+Author: Katherine Van As
+Author URI: https://wordpress.org/
+Description: A FSE block-based theme for a HyperionDev project. This theme used the Twenty Twenty Two theme as a boilerplate. Thanks Carolina Nymark.
+Tested up to: 6.0
+Requires PHP: 5.6
+Version: 1.01
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: cooltech
+CoolTech WordPress Theme, (C) 2021 WordPress.org
+CoolTech is distributed under the terms of the GNU GPL.
+*/
+
+/*
+ * Font smoothing.
+ * This is a niche setting that will not be available via Global Styles.
+ * https://github.com/WordPress/gutenberg/issues/35934
+ */
+
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	text-decoration-thickness: 0;
+	text-underline-offset: 0.25ch;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: var(--wp--preset--color--primary);
+	text-decoration-thickness: 1px;
+	text-decoration-style: dashed;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+
+/************ TYPOGRAPHY ************/
+
+h1, h2, h3{color: var(--wp--preset--color--primary)}
+
+h1 a, h2 a, h3 a, h4 a{color:  var(--wp--preset--color--primary);}
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover{color:  var(--wp--preset--color--secondary);}
+
+h4.wp-block-post-title{
+	font-size: var(--wp--preset--font-size--large);
+}
+.has-small-font-size{
+	font-size: var(--wp--preset--font-size--small);
+}
+.has-medium-font-size{
+	font-size: var(--wp--preset--font-size--medium);
+}
+.has-large-font-size{
+	font-size: var(--wp--preset--font-size--large);
+}
+
+hr.wp-block-separator, hr{
+	border: none;
+	border-bottom-color: var(--wp--preset--color--primary);
+	border-bottom-style: dotted;
+}
+
+
+/************ LAYOUT FIXES INHERITED FROM TWENTY TWENTY TWO THEME ************/
+.alignwide{
+	padding-left: var(--wp--custom--spacing--outer);
+	padding-right: var(--wp--custom--spacing--outer);
+}
+
+.wp-site-blocks .alignfull,
+.wp-site-blocks > .wp-block-group.has-background,
+.wp-site-blocks > .wp-block-cover,
+.wp-site-blocks > .wp-block-template-part > .wp-block-group.has-background,
+.wp-site-blocks > .wp-block-template-part > .wp-block-cover,
+body > .is-root-container > .wp-block-cover,
+body > .is-root-container > .wp-block-template-part > .wp-block-group.has-background,
+body > .is-root-container > .wp-block-template-part > .wp-block-cover,
+.is-root-container .wp-block[data-align="full"] {
+	/*margin-left: calc(-1 * var(--wp--custom--spacing--outer)) !important;
+	margin-right: calc(-1 * var(--wp--custom--spacing--outer)) !important;*/
+	width: unset;
+}
+
+
+/* Blocks inside columns don't have negative margins. */
+.wp-site-blocks .wp-block-columns .wp-block-column .alignfull,
+.is-root-container .wp-block-columns .wp-block-column .wp-block[data-align="full"],
+/* We also want to avoid stacking negative margins. */
+.wp-site-blocks .alignfull:not(.wp-block-group) .alignfull,
+.is-root-container .wp-block[data-align="full"] > *:not(.wp-block-group) .wp-block[data-align="full"] {
+	margin-left: auto !important;
+	margin-right: auto !important;
+	width: inherit;
+}
+
+/*******   COLORS    ********
+	These "has-" classnames are added by wordpress when our selecting colours
+	in the editor. Lets make good use of them...
+*/
+
+.has-background-background-color{
+	background-color:  var(--wp--preset--color--background);
+}
+
+/*set background-color too blue*/
+.has-primary-background-clor{
+	background-color:  var(--wp--preset--color--primary);
+}
+
+/*set background-color to orange*/
+.has-secondary-background-color{
+	background-color:  var(--wp--preset--color--secondary);
+}
+
+/*set text color to blue*/
+.has-primary-color{
+	color:  var(--wp--preset--color--primary);
+}
+
+/*set color to orange*/
+.has-secondary-color{
+	color:  var(--wp--preset--color--secondary);
+}
+
+
+/*******   NAVS AND HEADER STUFF    *********/
+
+.wp-site-blocks > header{
+	background: var(--wp--preset--color--background)
+}
+header .wp-block-site-logo *[fill="currentcolor"]{fill: var(--wp--preset--color--primary)}
+
+/*
+ * Responsive menu container padding.
+ * This ensures the responsive container inherits the same
+ * spacing defined above. This behavior may be built into
+ * the Block Editor in the future.
+ */
+
+ .wp-block-navigation__responsive-container.is-menu-open {
+	padding-top: var(--wp--custom--spacing--outer);
+	padding-bottom: var(--wp--custom--spacing--large);
+	padding-right: var(--wp--custom--spacing--outer);
+	padding-left: var(--wp--custom--spacing--outer);
+}
+
+.wp-block-navigation .wp-block-navigation-item a:hover,
+.wp-block-navigation .wp-block-navigation-item a:focus {
+	text-decoration: underline;
+	text-decoration-style: solid;
+}
+
+.primary-page-navbar .wp-block-navigation-item__content{
+	color: var(--wp--preset--color--secondary);
+	text-transform: uppercase;
+	font-size: var(--wp--preset--font-size--small);
+}
+
+header .wp-container-7 > * + .category-navbar{
+	background-color:  var(--wp--preset--color--secondary);
+	margin-block-start: 0;
+	border-bottom: 2px solid var(--wp--preset--color--background);
+
+}
+
+.category-navbar .wp-block-navigation{
+	position: relative;
+	background-color:  var(--wp--preset--color--secondary);
+}
+
+.category-navbar .wp-block-navigation-item__content{
+	color: var(--wp--preset--color--background);
+	text-transform: uppercase;
+	font-size: var(--wp--preset--font-size--medium);
+	padding: var(--wp--custom--spacing--small) calc(var(--wp--custom--spacing--small) / 2);
+}
+
+
+/*******   BreadCrumbs    *********/
+.breadcrumb{
+	margin-block-start: 0;
+	margin-block-end: 2em;
+	padding: 1rem 0.5rem;
+	text-transform: uppercase; 
+	color: var(--wp--preset--color--background);
+	font-size: var(--wp--preset--font-size--x-small);
+}
+.breadcrumb a{ color: var(--wp--preset--color--background); 
+}
+
+
+/*******   Read more buttons    *********/
+
+.wp-block-read-more{
+	padding: 0.2rem var(--wp--custom--spacing--small);
+	background-color: var(--wp--preset--color--secondary);
+	color: var(--wp--preset--color--background);
+}
+.wp-block-read-more:hover{
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--background);
+}
+
+
+
+/*******   PAGES    *********/
+
+.wp-site-blocks > main{
+	position: relative;
+	margin-block-start: 0;	
+	margin-block-end: 0;	
+}
+
+.page main{
+	padding-bottom:4em;
+}
+
+.wp-site-blocks > main:after,  article:after{
+	content: "";
+	display: table;
+	clear: both;
+	width: 100%;
+	position: relative;
+	height: 1px;
+}
+
+.archive main{
+	padding-bottom: 2rem;
+}
+.archive .wp-block-post-title{
+	font-size: var(--wp--preset--font-size--x-large);
+}
+
+.wp-block-group.comments{
+	background-color: #efefef;
+	padding-bottom: var(--wp--custom--spacing--medium);	
+}
+
+
+/* 
+	first cell in columns block does not have a margin at the top 
+ 	we need to fix this for alignment on bigger screens
+*/
+@media screen and (min-width: 900px) {
+    [class*="wp-container"].wp-block-columns > .wp-block-column:first-child{
+		margin-block-start: var(--wp--custom--spacing--small);
+	}
+} 
+
+
+/*******   footer    *********/
+.wp-site-blocks > footer{
+	clear: both;
+	background-color: var(--wp--preset--color--primary);
+	color: var(--wp--preset--color--background);
+	margin-block-start: 0em;
+	padding: 3em 0;
+}
+
+.wp-site-blocks > footer .wp-block-site-logo *[fill="currentcolor"]{fill: var(--wp--preset--color--background)}
+
+/*******   POST META DATA    *********/
+
+.post-meta > * {margin-block-start: 0.5rem !important; display: flex; gap: 0.3rem}
+.post-meta > *:before{color: var(--wp--preset--color--primary); display: inline-block; width: 30px; text-align: center}
+.wp-block-lazyblock-cooltech-views, .wp-block-lazyblock-cooltech-hot-views{font-weight: 500; font-size: var(--wp--preset--font-size--medium)}
+.wp-block-lazyblock-cooltech-views:before, .wp-block-lazyblock-cooltech-hot-views:before { 
+	
+	font-family: "Fontello";
+	content: '\e800';
+		
+}
+.wp-block-post-date:before{ 
+	font-family: "Fontello";
+	content: '\e802';
+}		
+
+.wp-block-post-author:before{ 
+	font-family: "Fontello";
+	content: '\e801';
+}		
+
+.single .post-meta{
+	border-top: 2px dotted var(--wp--preset--color--primary);
+	border-bottom: 2px dotted var(--wp--preset--color--primary);
+	justify-content: stretch;
+	gap: var(--wp--style--block-gap);
+	padding: var(--wp--custom--spacing--small) 0;
+}
+
+.single .post-meta > div{
+	margin-block-start: 0 !important;	
+}
+.single .post-meta div:not(:last-child){
+	border-right: 1px solid var(--wp--preset--color--tertiary);
+	padding-right: var(--wp--style--block-gap);
+}
+
+
+/*******  QUERY LOOP BLOCK STYLES (used on home page)    *********/
+
+.home .wp-block-columns.alignfull{gap: 3rem;}
+.home main > .wp-block-group.alignwide{
+	padding-left: 0;
+	padding-right: 0;
+}
+
+/*******  QUERY LOOP BLOCK STYLES (used on home page)    *********/
+
+/*-----------main story -----------*/
+.wp-block-query .wp-block-post{
+	position: relative;
+}
+.wp-block-query.feature-post .wp-block-post .wp-block-post-featured-image + .wp-block-group{
+	z-index: 1;
+	position: absolute;
+	width: 75%;
+	transform: translateY(-100%);
+	right: 0;
+	text-align: right;
+	padding: 1rem;
+	background-color: rgba(255,255,255,0.95)
+}
+.wp-block-query.feature-post .wp-block-post-featured-image + .wp-block-group h2{
+
+	font-size: var(--wp--preset--font-size--huge);
+	margin-top: 0.5rem;
+	margin-bottom: 1rem;
+}
+.wp-block-query.feature-post .post-meta {border-bottom: 2px dotted var(--wp--preset--color--primary) }
+
+.wp-block-group.post-meta.meta-vertical{
+	gap:0;
+	font-size: var(--wp--preset--font-size--x-small)
+
+}
+.wp-block-query.secondary-feature-posts .wp-block-post .wp-block-post-featured-image + .wp-block-group{
+z-index: 1;
+position: absolute;
+width: auto;
+transform: translateY(-100%);
+right: 0;
+text-align: right;
+padding: 0.5rem 1rem 2rem 1rem;
+background-color: rgba(255,255,255,0.95);
+margin-bottom: 0rem;
+}
+.wp-block-query.secondary-feature-posts .wp-block-post-title{
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
